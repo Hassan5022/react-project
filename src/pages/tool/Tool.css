@@ -48,7 +48,7 @@
     border: 1px solid rgb(171, 168, 168);
     background-color: white;
     border-radius: 4px;
-    width: 35%;
+    width: 30%;
     margin-right: 16px;
 }
 
@@ -117,10 +117,12 @@
     border: 1px solid rgb(171, 168, 168);
     background-color: white;
     border-radius: 4px;
-    width: 65%;
+    width: 70%;
+    justify-content: space-between;
 }
 
-.image-results .title{
+.image-results .title,
+.image-results .bottom{
     display: flex;
     padding: 8px 16px 8px;
     height: 68px;
@@ -129,6 +131,50 @@
     border-bottom: 1px solid#c5c0c0;
 }
 
+.image-results .bottom{
+    border-bottom: none;
+    border-top: 1px solid#c5c0c0;
+}
+
 .image-results .output-placeholder{
     margin: auto;
+}
+
+.image-results .ai-results{
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-results .loader-div{
+    position: relative;
+}
+
+.image-results .loader-div .loader{
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-right: 5px solid #3498db;
+    border-bottom: 5px solid #3498db;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.image-results .ai-results .ai-image{
+    margin: 4px;
+}
+
+.image-results .ai-results .ai-image img{
+    width: 320px;
+    height: 320px;
 }

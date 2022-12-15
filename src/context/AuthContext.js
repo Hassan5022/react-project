@@ -10,6 +10,8 @@ const authReducer = (state, action) => {
 			return { ...state, user: action.payload };
 		case "LOGOUT":
 			return { ...state, user: null };
+		case "LOADED":
+			return { ...state, loaded: action.payload };
 		default:
 			return state;
 	}
@@ -38,7 +40,8 @@ export const AuthContextProvider = ({ children }) => {
 	console.log(apiData);
 
 	const [state, dispatch] = useReducer(authReducer, {
-		user: null
+		user: null,
+		loaded: null
 	});
 
 	return (
