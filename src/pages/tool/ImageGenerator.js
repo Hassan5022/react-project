@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import LoginComponent from "../login/LoginComponent";
 import ImageGeneratorComponent from "./ImageGeneratorComponent";
@@ -10,7 +10,12 @@ export default function ImageGenerator({ data }) {
     const [imageResult, setImageResult] = useState(true)
     const [toggleLogin, setToggleLogin] = useState(false)
     const [images, setImages] = useState(null)
-    const [responseError, setResponseError] = useState(null)
+    const [showPlaceholder, setShowPlaceholder] = useState(true)
+    const [showLoadingImage, setShowLoadingImage] = useState(null)
+
+    useEffect(() => {
+        if(images)setShowLoadingImage(false)
+    }, [images])
 
     const { user } = useAuthContext()
 
@@ -18,8 +23,8 @@ export default function ImageGenerator({ data }) {
         <div className="image-generator">
             <ToolNavbar/>
             <div className="tool-body image-generator-body">
-                <ImageGeneratorComponent user={user} setResponseError={setResponseError} setImages={setImages} setToggleLogin={setToggleLogin} setImageResult={setImageResult} data={data} />
-                {imageResult && <ImageResult images={images} user={user} data={data} />}
+                <ImageGeneratorComponent setShowLoadingImage={setShowLoadingImage} user={user} setShowPlaceholder= {setShowPlaceholder} setImages={setImages} setToggleLogin={setToggleLogin} setImageResult={setImageResult} data={data} />
+                {imageResult && <ImageResult setShowLoadingImage={setShowLoadingImage} showLoadingImage={showLoadingImage} showPlaceholder={showPlaceholder} images={images} user={user} data={data} />}
                 {toggleLogin && <div className="login-container">
                     <LoginComponent />
                 </div>}
