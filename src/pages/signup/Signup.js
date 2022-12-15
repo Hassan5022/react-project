@@ -4,42 +4,43 @@ import "./Signup.css";
 import { useState, useEffect } from "react";
 // logo image
 import logo from "../../assets/AI.svg";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import {useAuthContext} from '../../hooks/useAuthContext'
+import { useAuthContext } from "../../hooks/useAuthContext";
+import background from "../../assets/login-signup.png";
 
 export default function Signup() {
 	const [email, setEmail] = useState("");
 	const [name, setName] = useState("");
 	const [password, setPassword] = useState("");
-	const { dispatch } = useAuthContext()
-	const navigate = useNavigate()
+	const { dispatch } = useAuthContext();
+	const navigate = useNavigate();
 
-		const {apiData, message, error, isPending, postData } = useFetch(
-			"https://auth-system-production.up.railway.app/v1/api/auth/signup",
-			"POST"
-		);
+	const { apiData, message, error, isPending, postData } = useFetch(
+		"https://auth-system-production.up.railway.app/v1/api/auth/signup",
+		"POST"
+	);
 
 	useEffect(() => {
 		if (apiData) {
 			if (apiData.success) {
 				localStorage.setItem("accessToken", apiData.data.accessToken);
-				dispatch({ type: 'LOGIN', payload: apiData.success })
-				navigate('/tool')
-				}
+				dispatch({ type: "LOGIN", payload: apiData.success });
+				navigate("/tool");
 			}
-		}, [apiData, navigate]);
+		}
+	}, [apiData, navigate]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		postData({name, email, password });
+		postData({ name, email, password });
 		// clearForm()
 	};
 
 	const clearForm = () => {
 		setEmail("");
 		setPassword("");
-		setName("")
+		setName("");
 	};
 
 	return (
@@ -80,7 +81,7 @@ export default function Signup() {
 							Loading
 						</button>
 					)}
-					{message && <p>{message}</p> }
+					{message && <p>{message}</p>}
 					{/* {error && <p>{error}</p>} */}
 					<div className="checkbox">
 						<input type="checkbox" id="checkbox" />
@@ -94,7 +95,9 @@ export default function Signup() {
 					</p>
 				</form>
 			</div>
-			<div className="right"></div>
+			<div className="right">
+				<img src={background} alt="background" />
+			</div>
 		</div>
 	);
 }

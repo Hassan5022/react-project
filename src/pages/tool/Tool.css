@@ -1,9 +1,6 @@
-/* .tool{
-   
-} */
 
-.tool .navbar,
-.image-generator .navbar{
+.tool .nav,
+.image-generator .nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +8,7 @@
     background: none;
 }
 
-.tool .navbar input{
+.tool .nav input{
     margin: 0 auto 0 40px;
     padding: 8px 4px 8px 20px;
     width: 250px;
@@ -20,11 +17,16 @@
     border: 1px solid #d3c6c6;
 }
 
-.tool .navbar .profile,
-.image-generator .navbar .profile{
-    height: 40px;
-    width: 40px;
+.tool .nav .profile,
+.image-generator .nav .profile{
+    height: 52px;
+    width: 52px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
     background-color: gray;
 }
 
@@ -178,3 +180,15 @@
     width: 320px;
     height: 320px;
 }
+
+.image-generator-body .login-container{
+    width: 69%;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    padding-top: 24px;
+  }
+
+  .image-generator-body .login-container .imageGenerate{
+    width: 56%;
+  }

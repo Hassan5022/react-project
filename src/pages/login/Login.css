@@ -1,7 +1,7 @@
 .login{
     display: flex;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
   }
 
   .login .left{
@@ -10,18 +10,19 @@
   }
 
   .login .right{
-    width: 70%;
+    /* width: 70%; */
+    overflow: hidden;
   }
 
-  .login-form {
+
+
+  .login .right img{
+    height: 100%;
+  }
+
+  .login .left .login-form {
     margin-right: auto;
     padding: 20px 40px;
-  }
-
-  .imageGenerate{
-    width: 66%;
-    margin-right: unset;
-    background-color: white;
   }
 
   .login-form p{
@@ -73,7 +74,3 @@
   .login-form input[type='password']{
     margin-bottom: 16px;
   }  
-
-  .login .right{
-    background-color: palevioletred;
-  }
