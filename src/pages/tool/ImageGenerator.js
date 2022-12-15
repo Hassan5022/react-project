@@ -20,7 +20,9 @@ export default function ImageGenerator({ data }) {
             <div className="tool-body image-generator-body">
                 <ImageGeneratorComponent user={user} setResponseError={setResponseError} setImages={setImages} setToggleLogin={setToggleLogin} setImageResult={setImageResult} data={data} />
                 {imageResult && <ImageResult images={images} user={user} data={data} />}
-                {toggleLogin && <LoginComponent/>}
+                {toggleLogin && <div className="login-container">
+                    <LoginComponent />
+                </div>}
 			</div>
         </div>
   )

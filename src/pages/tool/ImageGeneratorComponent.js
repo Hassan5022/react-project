@@ -101,7 +101,6 @@ export default function ImageGeneratorComponent({
 									maxLength={val.maxLimit}
 									minLength={val.minLimit}
 									name={val.name}
-									placeholder={val.placeholder}
 									onChange={(e) => setPrompt(e.target.value)}
 									value={prompt}
 								/>
@@ -113,7 +112,6 @@ export default function ImageGeneratorComponent({
 								<select
 									name={val.name}
 									onChange={(e) => setSize(e.target.value)}
-									placeholder={val.placeholder}
 								>
 									{val.options.map((opt) => (
 										<option key={opt} value={size}>
@@ -128,7 +126,6 @@ export default function ImageGeneratorComponent({
 								<span>{val.name}</span>
 								<input
 									type={val.type}
-									placeholder={val.placeholder}
 									name={val.name}
 									onChange={(e) => setN(e.target.value)}
 									value={n}

@@ -6,8 +6,17 @@ import logo from '../../src/assets/AI.svg'
 
 // component
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Navbar() {
+
+	const { user, dispatch } = useAuthContext()
+	
+	const logoutHandle = (e) => {
+		e.preventDefault()
+		dispatch({ type: "LOGOUT" })
+		localStorage.removeItem("accessToken")
+	}
 
 	return (
 		<nav className="navbar">
@@ -21,12 +30,15 @@ export default function Navbar() {
 				<li className="title">
 					<Link id="tool-link" to={'/tool'}>Tools</Link>
 				</li>
-				<li className="login-logout">
+				{!user && <li className="login-logout">
 					<Link to="/signup">SIGNUP</Link>
-				</li>
-				<li className="login-logout">
+				</li>}
+				{!user && <li className="login-logout">
 					<Link to="/login">LOGIN</Link>
-				</li>
+				</li>}
+				{user && <li className="login-logout">
+					<Link onClick={logoutHandle} to="/">LOGOUT</Link>
+				</li>}
 			</ul>
 		</nav>
 	);

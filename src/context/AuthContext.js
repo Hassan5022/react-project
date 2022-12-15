@@ -9,7 +9,7 @@ const authReducer = (state, action) => {
 		case "LOGIN":
 			return { ...state, user: action.payload };
 		case "LOGOUT":
-			return { ...state, user: null };
+			return { ...state, user: null, loaded:null };
 		case "LOADED":
 			return { ...state, loaded: action.payload };
 		default:
@@ -33,6 +33,7 @@ export const AuthContextProvider = ({ children }) => {
 			}
 			if (apiData.success) {
 				dispatch({ type: "LOGIN", payload: apiData.success });
+				localStorage.setItem('name', apiData.data.name)
 			}
 		}
 	}, [apiData]);

@@ -1,85 +1,87 @@
-  .signup{
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-  }
-
-  .signup .left{
-    width: 30%;
-    margin: 40px auto;
-  }
-
-  .signup .right{
-    width: 70%;
-  }
-
-  .signup .left  .signup-form {
-    margin-right: auto;
-    padding: 20px 40px;
-  }
-
-  .signup .left  .signup-form p{
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
+.signup {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
 }
 
-.signup .left  .signup-form p a{
-    text-decoration: none;
-    color: #3994E2;
-  }
+.signup .left {
+	width: 39%;
+	margin: 40px auto;
+  padding: 0px 40px;
+}
 
-.signup .left  .signup-form .title {
-    text-align: center;
-  }
+.signup .right {
+	width: 59%;
+}
 
-.signup .left  .signup-form .title img {
-    width: 160px;
-    height: 160px;
-  }
+.signup .right img{
+	height: auto;
+	width: -webkit-fill-available;
+}
 
-.signup .left  .signup-form .title h2 {
-    font-size: 1.9em;
-  }
+.signup .left .signup-form {
+	margin-right: auto;
+	padding: 20px 40px;
+}
 
-.signup .left  .signup-form label {
-    display: block;
-    margin: 16px auto 8px;
-  }
+.signup .left .signup-form p {
+	text-align: center;
+	font-size: 12px;
+	font-weight: 400;
+}
 
-.signup .left  .signup-form input {
-    border: none;
-    padding: 10px 6px;
-    font-size: 1em;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-    width: 100%;
-    font-weight: 400;
-  }
+.signup .left .signup-form p a {
+	text-decoration: none;
+	color: #3994e2;
+}
 
-.signup .left .signup-form button{
-    width: 100%;
-    padding: unset;
-  }
+.signup .left .signup-form .title {
+	text-align: center;
+}
 
-.signup .left  .signup-form input[type='password']{
-    margin-bottom: 16px;
-  } 
+.signup .left .signup-form .title img {
+	width: 160px;
+	height: 160px;
+}
 
-  .signup .left  .signup-form input[type='checkbox']{
-    width: unset;
-    margin-right: 8px;
-  }
-  
-  .signup .left  .signup-form .checkbox{
-    padding: 12px 0px;
-    text-align: center;
-  }
+.signup .left .signup-form .title h2 {
+	font-size: 1.9em;
+}
 
-  .signup .left  .signup-form .checkbox-label{
-    display: unset;
-  } 
+.signup .left .signup-form label {
+	display: block;
+	margin: 16px auto 8px;
+}
 
-  .signup .right{
-    background-color: palevioletred;
-  }
+.signup .left .signup-form input {
+	border: none;
+	padding: 10px 6px;
+	font-size: 1em;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+	width: 100%;
+	font-weight: 400;
+}
+
+.signup .left .signup-form button {
+	width: 100%;
+	padding: unset;
+}
+
+.signup .left .signup-form input[type="password"] {
+	margin-bottom: 16px;
+}
+
+.signup .left .signup-form input[type="checkbox"] {
+	width: unset;
+	margin-right: 8px;
+}
+
+.signup .left .signup-form .checkbox {
+	padding: 12px 0px;
+	text-align: center;
+}
+
+.signup .left .signup-form .checkbox-label {
+	display: unset;
+}
