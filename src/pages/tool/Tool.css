@@ -123,6 +123,12 @@
     justify-content: space-between;
 }
 
+.image-results .loading-image{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .image-results .title,
 .image-results .bottom{
     display: flex;

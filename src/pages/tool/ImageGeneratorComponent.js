@@ -4,8 +4,9 @@ import { useFetch } from "../../hooks/useFetch";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function ImageGeneratorComponent({
+	setShowLoadingImage,
 	user,
-	setImageError,
+	setShowPlaceholder,
 	setToggleLogin,
 	setImages,
 	setImageResult,
@@ -28,6 +29,9 @@ export default function ImageGeneratorComponent({
 		e.preventDefault();
 		if (parseInt(n) === 1 || parseInt(n) === 2 || parseInt(n) === 3) {
 			if (user) {
+				setImages(null)
+				setShowLoadingImage(true)
+				setShowPlaceholder(false)
 				postData({ prompt, n: parseInt(n), size });
 				dispatch({type: "LOADED", payload: true})
 				setShowImage(true);
@@ -35,12 +39,16 @@ export default function ImageGeneratorComponent({
 				setCustomMessage("");
 			} else {
 				setCustomMessage("You are not signed in!");
+				setShowPlaceholder(true)
 				setImageResult(false);
 				setToggleLogin(true);
 				setShowImage(false);
+				setShowLoadingImage(false)
 			}
 		} else {
 			setCustomMessage("number should be in range of 1 to 3");
+			setShowPlaceholder(true)
+			setShowLoadingImage(false)
 			setToggleLogin(false);
 			setImageResult(true);
 			setShowImage(false);
@@ -51,7 +59,7 @@ export default function ImageGeneratorComponent({
 		if (showImage) {
 			setImages(apiData);
 		}
-	}, [apiData, showImage]);
+	}, [apiData, showImage, setImages]);
 
 	useEffect(() => {
 		if (
@@ -60,18 +68,20 @@ export default function ImageGeneratorComponent({
 			error === "Token expired"
 		) {
 			setImageResult(false);
+			setShowPlaceholder(true)
 			setToggleLogin(true);
 			setShowImage(false);
 			localStorage.removeItem("accessToken");
 			dispatch({ type: "LOGOUT" });
 		}
-	}, [error, setImageResult, setToggleLogin, dispatch]);
+	}, [error, setImageResult, setToggleLogin, dispatch, setShowImage]);
 
 	const clearHandle = (e) => {
 		e.preventDefault();
 		setPrompt("");
 		setSize("");
 		setN("");
+		setCustomMessage('')
 	};
 
 	// set default value
@@ -81,7 +91,7 @@ export default function ImageGeneratorComponent({
 		if (val.type === "option") setSize(val.placeholder)
 		if (val.type === "text") setN(val.placeholder)
 	});
-	}, [])
+	}, [setPrompt, setSize, setN])
 
 	return (
 		<div className="image-form-container">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-export default function Result({ images }) {
+export default function Result({images }) {
   
   const [show, setShow] = useState(false);
   const {dispatch} = useAuthContext()
@@ -11,7 +11,7 @@ export default function Result({ images }) {
 	  }
 
 	useEffect(() => {
-		if (images.success) {
+    if (images.success) {
 			setShow(true);
 		}
   }, [images, setShow]);
