@@ -8,15 +8,16 @@ import logo from '../../src/assets/AI.svg'
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+
 	return (
 		<nav className="navbar">
             <ul>
-                <li>
-                    <img
-                        src={logo}
-                        alt="logo"
-                    />
-                </li>
+				<li>
+					<img
+						src={logo}
+						alt="logo"
+					/>
+				</li>
 				<li className="title">
 					<Link id="tool-link" to={'/tool'}>Tools</Link>
 				</li>
